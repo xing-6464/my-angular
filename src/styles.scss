@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  font-family: "Microsoft Yahei", "Tmies New Roam";
+  font-size: 62.5%;
+  padding: 0;
+  margin: 0;
+  letter-spacing: 0;
+  border: none;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  margin-bottom: 0;
+}
