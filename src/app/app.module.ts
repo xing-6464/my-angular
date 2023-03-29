@@ -6,8 +6,6 @@ import { AppComponent } from './app.component';
 import { HelloComponent } from './hello/hello.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { InputComponent } from './input/input.component';
-import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
@@ -15,14 +13,9 @@ import { InfoComponent } from './info/info.component';
     HelloComponent,
     HeaderComponent,
     FooterComponent,
-    InputComponent,
-    InfoComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
