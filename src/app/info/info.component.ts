@@ -40,11 +40,15 @@ export class InfoComponent {
     },
   ];
 
-  ngOnInit() {
+  isInfoFun() {
     if (this.infos.length) {
       this.isInfo = false;
     } else {
       this.isInfo = true;
     }
+  }
+
+  ngOnInit() {
+    this.isInfoFun();
   }
 }
