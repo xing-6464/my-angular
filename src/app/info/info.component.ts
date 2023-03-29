@@ -1,4 +1,16 @@
 import { Component } from '@angular/core';
+import { InfoService } from './info.service';
+
+interface InfoType {
+  number: string;
+  name: string;
+  sex: string;
+  age: string;
+  country: string;
+  email: string;
+  tel: string;
+  address: string;
+}
 
 @Component({
   selector: 'app-info',
@@ -7,38 +19,19 @@ import { Component } from '@angular/core';
 })
 export class InfoComponent {
   isInfo = false;
-  infos = [
-    {
-      number: 1,
-      name: '尤迪安',
-      sex: '男',
-      age: 30,
-      country: '中国',
-      email: 'loong@163.com',
-      tel: '86-139-8765-4321',
-      address: '广东省深圳市南山区桃园路5号',
-    },
-    {
-      number: 2,
-      name: 'Jarry',
-      sex: '女',
-      age: 24,
-      country: '美国',
-      email: 'jarry@gmail.com',
-      tel: '1-222-333-4444',
-      address: '3050 Bowers Avenue, P.O. Box 58039, Santa Clara, CA',
-    },
-    {
-      number: 3,
-      name: 'コナン',
-      sex: '男',
-      age: 17,
-      country: '日本',
-      email: 'conan@yahoo.com.co.jp',
-      tel: '0081-8034125678',
-      address: '东京都米花町2丁目21番地',
-    },
-  ];
+  infos: InfoType[] = [];
+
+  constructor(private service: InfoService) {}
+
+  private getInfo() {
+    this.service.getInfo().subscribe((res) => {
+      console.info(res);
+      if ((res as any).code === 200) {
+        this.infos = (res as any).data as InfoType[];
+      }
+      this.isInfoFun();
+    });
+  }
 
   isInfoFun() {
     if (this.infos.length) {
@@ -49,6 +42,6 @@ export class InfoComponent {
   }
 
   ngOnInit() {
-    this.isInfoFun();
+    this.getInfo();
   }
 }
