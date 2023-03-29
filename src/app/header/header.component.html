@@ -1,7 +1,11 @@
 <div>
   <img src="../../favicon.ico" />
   <nav>
-    <a>信息展示(ClientInfo)</a>
-    <a>信息录入(InfoInput)</a>
+    <a
+      *ngFor="let link of links"
+      [routerLink]="[link.sref]"
+      routerLinkActive="active"
+      >{{ link.name }}</a
+    >
   </nav>
 </div>

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -6,9 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  info: string = 'http://www.imooc.com';
+  links = [
+    {
+      sref: '/info',
+      name: '信息展示(ClientInfo)',
+    },
+    {
+      sref: '/input',
+      name: '信息录入(InfoInput)',
+    },
+  ];
+
+  constructor(private route: Router) {}
 
   jumper(): void {
-    window.location.href = 'http://www.imooc.com';
+    this.route.navigate(['/input']);
   }
 }
